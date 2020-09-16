@@ -1,15 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.min.css">
-    <title>Аукцион</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/style.min.css" />
+        <title>Аукцион</title>
+    </head>
+    <body>
+        @@include('./_header.html')
 
-    @@include('./_header.html')
-    
-    <script src="js/main.js"></script>
-</body>
+        <section class="promo">
+            <div class="container">
+                <div class="promo__slider">
+                    <div class="promo__slider_item">
+                        <div class="subtitle promo__subtitle">
+                            Только экслюзивные
+                        </div>
+                        <h2 class="title promo__title">
+                            Лоты под аукцион и свобоДную продажу
+                        </h2>
+                        <div class="promo__descr">
+                            Мы собираем эксклюзивную публику и экслюзивные лоты,
+                            даем удобный и автоматизированный сервис по покупке
+                            и продаже, а также выставлению лотов на аукцион,
+                            предоставляем личные кабинеты, а также оказываем
+                            сопутствубщие услуги с продажей редких и дорогих
+                            вещей
+                        </div>
+                        <button class="btn promo__btn">присоединиться</button>
+                    </div>
+                    <div class="promo__slider_item">
+                        <div class="subtitle promo__subtitle">
+                            Только экслюзивные
+                        </div>
+                        <h2 class="title promo__title">
+                            Лоты под аукцион и свобоДную продажу
+                        </h2>
+                        <div class="promo__descr">
+                            Lorem, ipsum dolor sit amet consectetur adipisicing
+                            elit. Cumque rem possimus perferendis illum
+                            obcaecati tempora maiores non! Magnam, similique
+                            voluptatum! Hic accusantium magni distinctio
+                            consectetur est voluptatem sapiente! Dignissimos,
+                            hic.
+                        </div>
+                        <button class="btn promo__btn">присоединиться</button>
+                    </div>
+                </div>
+            </div>
+            <div class="promo__slider-nav slider-nav">
+                <div class="slider-nav__arrow slider-nav__arrow_prev">
+                    <img src="img/ico/slider_prev.png" alt="prev arrow" />
+                </div>
+                <div class="slider-nav__decor">
+                    <img src="img/ico/slider_mid.png" alt="decor" />
+                </div>
+                <div class="slider-nav__arrow slider-nav__arrow_next">
+                    <img src="img/ico/slider_next.png" alt="next arrow" />
+                </div>
+            </div>
+        </section>
+
+        
+
+        <script src="js/main.js"></script>
+    </body>
 </html>
