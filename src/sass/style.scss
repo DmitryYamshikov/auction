@@ -1,0 +1,23 @@
+@import "libs/bootstrap-reboot.min";
+@import "libs/fonts";
+
+@import "base/variables";
+@import "base/mixins";
+
+* {
+    font-family: 'BravoRgRegular', 'ceremonious_one', 'pfdintextcondpro', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 950px;
+    margin: 0 auto;
+}
+
+@import "blocks/header";
+
+
+
+
+@import "blocks/media";
