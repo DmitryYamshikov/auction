@@ -12,6 +12,11 @@ const webp = require("gulp-webp");
 const webpHTML = require("gulp-webp-html");
 const ttf2woff = require("gulp-ttf2woff");
 const ttf2woff2 = require("gulp-ttf2woff2");
+const del = require("del");
+
+gulp.task("del", function() {
+    return del("dist");
+});
 
 gulp.task("server", function () {
     browserSync({
@@ -104,6 +109,7 @@ gulp.task("images", function () {
 gulp.task(
     "default",
     gulp.parallel(
+        
         "watch",
         "server",
         "styles",
