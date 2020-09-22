@@ -1,6 +1,7 @@
 "use strict";
 
 window.addEventListener("DOMContentLoaded", () => {
+    //? MENU
     const subMenu = document.querySelector(".header__submenu");
     const icoUser = document.querySelector(".header__right-part_user");
 
@@ -22,7 +23,7 @@ window.addEventListener("DOMContentLoaded", () => {
         subMenu.classList.remove("active");
     });
 
-    //? slider
+    //? PROMO__slider
     const slides = document.querySelectorAll(".promo__slider_item");
     const prev = document.querySelector(".slider-nav__arrow_prev");
     const next = document.querySelector(".slider-nav__arrow_next");
@@ -49,7 +50,47 @@ window.addEventListener("DOMContentLoaded", () => {
     prev.addEventListener("click", () => {
         plusSlides(-1);
     });
-    next.addEventListener("click", ()=>{
+    next.addEventListener("click", () => {
         plusSlides(1);
+    });
+
+    //? POPULAR-LOTS__SLIDER
+
+    const lotSlides = document.querySelectorAll(".popular-lots__lot");
+    const lotSliderWrap = document.querySelector(".popular-lots__wrapper");
+    const lotNext = document.querySelector(".all-lots__dec_right");
+    const lotPrev = document.querySelector(".all-lots__dec_left");
+    let lotPos = 0;
+    let lotIndex = 1;
+    let lotShow = Math.floor(
+        parseInt(getComputedStyle(lotSliderWrap).width) / parseInt(getComputedStyle(lotSlides[0]).width)
+    );
+    lotIndex = lotShow;
+
+    lotNext.addEventListener("click", () => {
+        if (lotIndex < lotSlides.length) {
+            lotPos -= 350;
+            lotSliderWrap.style.transform = `translateX(${lotPos}px)`;
+            lotIndex += 1;
+        } else {
+            lotPos = 0;
+            lotSliderWrap.style.transform = `translateX(${lotPos}px)`;
+            lotIndex = lotShow;
+        }
+        console.log(lotIndex);
+    });
+
+    lotPrev.addEventListener("click", () => {
+        if (lotIndex > lotShow) {
+            lotPos += 350;
+            lotSliderWrap.style.transform = `translateX(${lotPos}px)`;
+            lotIndex -= 1;
+        } else {
+            lotPos = -350*(lotSlides.length-lotShow);
+            console.log(lotPos);
+            lotSliderWrap.style.transform = `translateX(${lotPos}px)`;
+            lotIndex = lotSlides.length;
+        }
+        console.log(lotIndex);
     });
 });

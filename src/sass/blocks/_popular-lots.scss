@@ -5,6 +5,7 @@
 
     &__title {
         margin-top: 27px;
+        font-weight: 700;
     }
 
     // .popular-lots__divider
@@ -20,13 +21,32 @@
     // .popular-lots__wrapper
 
     &__wrapper {
-        margin-top: 42px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+        align-content: stretch;
+        transition: all 0.5s;
     }
 
     // .popular-lots__lot
 
     &__lot {
-        width: 250px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        min-width: 250px;
+        margin: 0 50px;
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+    &__slider {
+        margin: 0 auto;
+        max-width: 950px;
+        margin-top: 70px;
+        overflow: hidden;
     }
 }
 
@@ -62,9 +82,6 @@
     }
 }
 .lot {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     // .lot__photo
 
     &__photo {
@@ -122,6 +139,9 @@
     // .lot__title
 
     &__title {
+        flex-grow: 1;
+
+        min-height: 50px;
         margin-top: 30px;
         position: relative;
         text-align: center;
@@ -247,6 +267,5 @@
         color: #000000;
         font-weight: 700;
         font-family: PFDinTextCondPro;
-        
     }
 }
