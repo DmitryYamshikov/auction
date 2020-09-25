@@ -60,16 +60,21 @@ window.addEventListener("DOMContentLoaded", () => {
     const lotSliderWrap = document.querySelector(".popular-lots__wrapper");
     const lotNext = document.querySelector(".all-lots__dec_right");
     const lotPrev = document.querySelector(".all-lots__dec_left");
+
     let lotPos = 0;
     let lotIndex = 1;
     let lotShow = Math.floor(
         parseInt(getComputedStyle(lotSliderWrap).width) / parseInt(getComputedStyle(lotSlides[0]).width)
     );
+    const sliderStep =
+        parseInt(getComputedStyle(lotSlides[1]).width) +
+        parseInt(getComputedStyle(lotSlides[1]).marginLeft) +
+        parseInt(getComputedStyle(lotSlides[1]).marginRight);
     lotIndex = lotShow;
-
+    console.log(sliderStep);
     lotNext.addEventListener("click", () => {
         if (lotIndex < lotSlides.length) {
-            lotPos -= 350;
+            lotPos -= sliderStep;
             lotSliderWrap.style.transform = `translateX(${lotPos}px)`;
             lotIndex += 1;
         } else {
@@ -77,20 +82,17 @@ window.addEventListener("DOMContentLoaded", () => {
             lotSliderWrap.style.transform = `translateX(${lotPos}px)`;
             lotIndex = lotShow;
         }
-        console.log(lotIndex);
     });
 
     lotPrev.addEventListener("click", () => {
         if (lotIndex > lotShow) {
-            lotPos += 350;
+            lotPos += sliderStep;
             lotSliderWrap.style.transform = `translateX(${lotPos}px)`;
             lotIndex -= 1;
         } else {
-            lotPos = -350*(lotSlides.length-lotShow);
-            console.log(lotPos);
+            lotPos = -sliderStep * (lotSlides.length - lotShow);
             lotSliderWrap.style.transform = `translateX(${lotPos}px)`;
             lotIndex = lotSlides.length;
         }
-        console.log(lotIndex);
     });
 });
