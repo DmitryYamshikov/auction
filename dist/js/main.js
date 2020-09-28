@@ -60,39 +60,80 @@ window.addEventListener("DOMContentLoaded", () => {
     const lotSliderWrap = document.querySelector(".popular-lots__wrapper");
     const lotNext = document.querySelector(".all-lots__dec_right");
     const lotPrev = document.querySelector(".all-lots__dec_left");
+    /* let lotIndex = calcSliderCurrentShow(lotSliderWrap, lotSlides); */
 
-    let lotPos = 0;
-    let lotIndex = 1;
-    let lotShow = Math.floor(
-        parseInt(getComputedStyle(lotSliderWrap).width) / parseInt(getComputedStyle(lotSlides[0]).width)
-    );
-    const sliderStep =
-        parseInt(getComputedStyle(lotSlides[1]).width) +
-        parseInt(getComputedStyle(lotSlides[1]).marginLeft) +
-        parseInt(getComputedStyle(lotSlides[1]).marginRight);
-    lotIndex = lotShow;
-    console.log(sliderStep);
     lotNext.addEventListener("click", () => {
+        let lotIndex = calcCurrentIndex(lotSliderWrap, lotSlides);
         if (lotIndex < lotSlides.length) {
-            lotPos -= sliderStep;
-            lotSliderWrap.style.transform = `translateX(${lotPos}px)`;
-            lotIndex += 1;
+            nextSlide(lotSliderWrap, lotSlides);
         } else {
-            lotPos = 0;
-            lotSliderWrap.style.transform = `translateX(${lotPos}px)`;
-            lotIndex = lotShow;
+            refreshSliderStart(lotSliderWrap);
         }
     });
 
     lotPrev.addEventListener("click", () => {
-        if (lotIndex > lotShow) {
-            lotPos += sliderStep;
-            lotSliderWrap.style.transform = `translateX(${lotPos}px)`;
-            lotIndex -= 1;
+        let lotIndex = calcCurrentIndex(lotSliderWrap, lotSlides);
+        if (lotIndex > calcSliderCurrentShow(lotSliderWrap, lotSlides)) {
+            prevSlide(lotSliderWrap, lotSlides);
         } else {
-            lotPos = -sliderStep * (lotSlides.length - lotShow);
-            lotSliderWrap.style.transform = `translateX(${lotPos}px)`;
-            lotIndex = lotSlides.length;
+            refreshSliderEnd(lotSliderWrap, lotSlides);
         }
     });
+    // считаем сколько будет пролистываться при нажатии на кнопку
+    function calcSliderStep(sliderItems) {
+        return (
+            parseInt(getComputedStyle(sliderItems[1]).width) +
+            parseInt(getComputedStyle(sliderItems[1]).marginLeft) +
+            parseInt(getComputedStyle(sliderItems[1]).marginRight)
+        );
+    }
+
+    //считаем сколько слайдов влезает в окно
+    function calcSliderCurrentShow(sliderWrap, sliderItems) {
+        return Math.floor(
+            parseInt(getComputedStyle(sliderWrap).width) / parseInt(getComputedStyle(sliderItems[0]).width)
+        );
+    }
+
+    // нажатие на кнопку NEXT
+    function nextSlide(sliderWrap, sliderItems) {
+        let itemPos = parseInt(getComputedStyle(sliderWrap).left);
+        itemPos -= calcSliderStep(sliderItems);
+        sliderWrap.style.left = `${itemPos}px`;
+    }
+    // нажатие на кнопку PREV
+    function prevSlide(sliderWrap, sliderItems) {
+        let itemPos = parseInt(getComputedStyle(sliderWrap).left);
+        itemPos += calcSliderStep(sliderItems);
+        sliderWrap.style.left = `${itemPos}px`;
+    }
+
+    function refreshSliderStart(sliderWrap) {
+        sliderWrap.style.left = `0px`;
+    }
+
+    function refreshSliderEnd(sliderWrap, sliderItems) {
+        let lotPos =
+            -calcSliderStep(sliderItems) * (sliderItems.length - calcSliderCurrentShow(sliderWrap, sliderItems));
+        sliderWrap.style.left = `${lotPos}px`;
+    }
+
+    function calcCurrentIndex(sliderWrap, sliderItems) {
+        return (
+            Math.abs(parseInt(getComputedStyle(sliderWrap).left)) / calcSliderStep(sliderItems) +
+            calcSliderCurrentShow(sliderWrap, sliderItems)
+        );
+    }
 });
+
+/* if (lotIndex < lotSlides.length) {
+    lotPos -= calcSliderStep(lotSlides);
+    lotSliderWrap.style.transform = `translateX(${lotPos}px)`;
+    lotIndex += 1;
+} else {
+    lotPos = 0;
+    lotSliderWrap.style.transform = `translateX(${lotPos}px)`;
+    lotIndex = calcSliderCurrentShow(lotSliderWrap, lotSlides);
+} 
+
+*/

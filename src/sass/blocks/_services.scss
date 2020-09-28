@@ -1,0 +1,108 @@
+.services {
+    min-height: 725px;
+    padding: 60px 0 100px 0;
+    background-color: #1c242a;
+
+    // .services__title
+
+    &__title {
+        margin-top: 33px;
+    }
+
+    // .services__divider
+
+    &__divider {
+        margin-top: 25px;
+    }
+
+    // .services__wrapper
+
+    &__wrapper {
+        margin-top: 50px;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    // .services__item
+
+    &__item {
+        max-width: 255px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: baseline;
+    }
+}
+
+.item-services {
+    // .item-services__logo
+
+    &__logo {
+        height: 162px;
+    }
+
+    // .item-services__title
+
+    &__title {
+        text-align: center;
+        margin-top: 45px;
+        font-family: PFDinTextCondPro;
+        font-size: 21px;
+        line-height: 25px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: #ffffff;
+    }
+
+    // .item-services__descr
+
+    &__descr {
+        flex-grow: 1;
+        margin-top: 30px;
+        font-family: PTSans;
+        font-size: 15px;
+        line-height: 25px;
+        font-weight: 400;
+        color: #bb9c66;
+    }
+
+    // .item-services__more
+
+    &__more {
+        margin-top: 35px;
+        position: relative;
+        width: 100%;
+        text-align: center;
+        a {
+            font-family: PFDinTextCondPro;
+            font-size: 21px;
+            line-height: 25px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #ffffff;
+            text-decoration: none;
+            &:hover {
+                color: #bb9c66;
+            }
+        }
+        &:before,
+        &:after {
+            display: block;
+            content: "";
+            position: absolute;
+            width: 50px;
+            height: 1px;
+            background-color: #bb9c66;
+            top:50%;
+        }
+        &:before {
+            left:0;
+        }
+        &:after {
+            right: 0;
+        }
+    }
+}

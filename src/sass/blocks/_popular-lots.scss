@@ -12,15 +12,13 @@
 
     &__divider {
         margin-top: 33px;
-        display: flex;
-        width: 100%;
-        justify-content: space-between;
-        align-items: center;
     }
 
     // .popular-lots__wrapper
 
     &__wrapper {
+        left:0;
+        position: relative;
         width: 100%;
         display: flex;
         justify-content: space-between;
@@ -43,6 +41,7 @@
         }
     }
     &__slider {
+        position: relative;
         margin: 0 auto;
         max-width: 950px;
         margin-top: 70px;
@@ -51,6 +50,10 @@
 }
 
 .divider {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
     // .divider__part
 
     &__part {

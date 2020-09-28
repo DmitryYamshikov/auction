@@ -70,6 +70,19 @@
             }
         }
     }
+    .services {
+        &__item {
+            max-width: 200px;
+        }
+    }
+    .item-services {
+        &__more {
+            &:before,
+            &:after {
+                width: 30px;
+            }
+        }
+    }
 }
 
 //? 768
@@ -143,11 +156,24 @@
         }
     }
     .all-lots {
+        padding-bottom: 30px;
         &__wrapper {
             width: 100%;
             column-gap: 9px;
         }
     }
+    .services {
+        padding-bottom: 10px;
+        &__wrapper {
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        &__item {
+            margin: 0 15px 30px 15px;
+            
+        }
+    }
+    
 }
 
 //? 576
@@ -186,8 +212,11 @@
         }
     }
     .divider {
+        width: 100%;
+        justify-content: center;
         &__part {
             span {
+                
                 width: 25px;
             }
         }
