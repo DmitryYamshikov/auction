@@ -27,8 +27,26 @@ window.addEventListener("DOMContentLoaded", () => {
     const slides = document.querySelectorAll(".promo__slider_item");
     const prev = document.querySelector(".slider-nav__arrow_prev");
     const next = document.querySelector(".slider-nav__arrow_next");
+    const promoSliderWrap = document.querySelector(".promo__slider");
 
-    let slideIndex = 1;
+    next.addEventListener("click", () => {
+        let lotIndex = calcCurrentIndex(promoSliderWrap, slides);
+        if (lotIndex < slides.length) {
+            nextSlide(promoSliderWrap, slides);
+        } else {
+            refreshSliderStart(promoSliderWrap);
+        }
+    });
+
+    prev.addEventListener("click", () => {
+        let lotIndex = calcCurrentIndex(promoSliderWrap, slides);
+        if (lotIndex > calcSliderCurrentShow(promoSliderWrap, slides)) {
+            prevSlide(promoSliderWrap, slides);
+        } else {
+            refreshSliderEnd(promoSliderWrap, slides);
+        }
+    });
+    /*     let slideIndex = 1;
 
     showSlides(1);
 
@@ -52,7 +70,7 @@ window.addEventListener("DOMContentLoaded", () => {
     });
     next.addEventListener("click", () => {
         plusSlides(1);
-    });
+    }); */
 
     //? POPULAR-LOTS__SLIDER
 
@@ -125,15 +143,3 @@ window.addEventListener("DOMContentLoaded", () => {
         );
     }
 });
-
-/* if (lotIndex < lotSlides.length) {
-    lotPos -= calcSliderStep(lotSlides);
-    lotSliderWrap.style.transform = `translateX(${lotPos}px)`;
-    lotIndex += 1;
-} else {
-    lotPos = 0;
-    lotSliderWrap.style.transform = `translateX(${lotPos}px)`;
-    lotIndex = calcSliderCurrentShow(lotSliderWrap, lotSlides);
-} 
-
-*/

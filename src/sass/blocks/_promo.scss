@@ -1,24 +1,30 @@
 .promo {
-    margin-top:75px;
+    margin-top: 75px;
     position: relative;
     min-height: 500px;
     padding: 59px 0 100px 0;
     background: url(../img/bg/main_bg.jpg) center (center/cover) no-repeat;
     // .promo__slider
-
+    &__slider-wrapper {
+        position: relative;
+        overflow: hidden;
+    }
     &__slider {
+        position: relative;
+        display: flex;
+        transition: all 0.5s;
         // .promo__slider_item
 
         &_item {
+            padding-top: 20px;
+            min-width: 100%;
+            min-height: 400px;
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: space-between;
         }
     }
-
-    
-
-
 
     // .promo__title
 
@@ -29,6 +35,7 @@
     // .promo__descr
 
     &__descr {
+        flex-grow: 1;
         text-align: center;
         margin-top: 27px;
         max-width: 670px;
@@ -44,7 +51,6 @@
     &__btn {
         margin-bottom: 20px;
         margin-top: 20px;
-        
     }
 
     &__slider-nav {
