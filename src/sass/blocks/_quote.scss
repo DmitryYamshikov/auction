@@ -1,0 +1,125 @@
+.quote {
+    padding: 65px 0 30px 0;
+    // .quote__divider
+    &__title {
+        margin-top: 25px;
+    }
+    &__divider {
+        margin-top: 20px;
+    }
+
+    // .quote__slider-wrapper
+
+    &__slider-wrapper {
+        
+        width: 100%;
+        
+    }
+
+    // .quote__slider
+
+    &__slider {
+        width: 100%;
+    }
+}
+
+.slider-quote {
+    width: 100%;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+
+    // .slider-quote__item
+    &__items {
+        position: relative;
+        display: flex;
+        width: 100%;
+        transition: all .5s;
+    }
+    &__item {
+        display: flex;
+        min-width: 100%;
+    }
+
+    // .slider-quote__logo
+
+    &__logo {
+        margin-right: 65px;
+    }
+
+    // .slider-quote__descr
+
+    &__descr {
+        padding-top: 80px;
+    }
+
+    // .slider-quote__text
+
+    &__text {
+        font-family: PTSans;
+        font-size: 25px;
+        line-height: 30px;
+        font-weight: 400;
+    }
+
+    // .slider-quote__date
+
+    &__date {
+        margin-top: 40px;
+        font-size: 15px;
+        line-height: 25px;
+        font-style: normal;
+        text-transform: none;
+        color: #1c242a;
+    }
+
+    // .slider-quote__nav
+
+    &__nav {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 400px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    // .slider-quote__arrow
+
+    &__arrow {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        span {
+            width: 107px;
+            height: 1px;
+            background-color: #bb9c66;
+            margin-right: 5px;
+        }
+        div {
+            height: 11px;
+            width: 11px;
+            border-radius: 100%;
+            border: 1px solid #bb9c66;
+        }
+        // .slider-quote__arrow_right
+
+        &_right {
+            transform: rotate(180deg);
+        }
+    }
+
+    // .slider-quote__refresh
+
+    &__refresh {
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        border: 1px solid #bb9c66;
+        border-radius: 100%;
+    }
+}

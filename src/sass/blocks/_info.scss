@@ -1,0 +1,234 @@
+.info {
+    padding: 75px 0;
+    // .info__news
+    &__wrapper {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 70px;
+        grid-template-rows: repeat(2, auto);
+        row-gap: 55px;
+        justify-content: space-between;
+    }
+    &__news {
+    }
+
+    // .info__events
+
+    &__events {
+    }
+
+    // .info__subscription
+
+    &__subscription {
+    }
+}
+
+.news {
+    // .news__title
+
+    &__title {
+        padding-left: 30px;
+        position: relative;
+        text-align: left;
+        margin-bottom: 35px;
+        &:before {
+            content: "";
+            display: block;
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 20px;
+            height: 25px;
+            background: url(../img/ico/news_logo.png) no-repeat;
+        }
+    }
+
+    // .news__item
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 35px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    // .news__date
+
+    &__date {
+        font-family: PTSans;
+        font-size: 12px;
+        line-height: 25px;
+        font-weight: 400;
+        color: #bb9c66;
+    }
+
+    // .news__item-title
+
+    &__item-title {
+        a {
+            font-family: PTSans;
+            font-size: 15px;
+            line-height: 25px;
+            font-weight: 700;
+            text-decoration: underline;
+            color: #333333;
+        }
+    }
+
+    // .news__text
+
+    &__text {
+        line-height: 25px;
+        font-family: PTSans;
+        font-size: 15px;
+        color: #333333;
+    }
+}
+
+.events {
+    // .events__title
+
+    &__title {
+        padding-left: 30px;
+        position: relative;
+        text-align: left;
+        margin-bottom: 35px;
+        &:before {
+            content: "";
+            display: block;
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 20px;
+            height: 25px;
+            background: url(../img/ico/event_logo.png) no-repeat;
+        }
+    }
+
+    // .news__item
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 35px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    &__item-title {
+        a {
+            font-family: PTSans;
+            font-size: 15px;
+            line-height: 25px;
+            font-weight: 700;
+            text-decoration: underline;
+            color: #333333;
+        }
+    }
+
+    // .news__text
+
+    &__text {
+        line-height: 25px;
+        font-family: PTSans;
+        font-size: 15px;
+        color: #333333;
+    }
+}
+.subscription {
+    grid-column: 1/4;
+    // .subscription__title
+
+    &__title {
+        padding-left: 30px;
+        position: relative;
+        text-align: left;
+        margin-bottom: 35px;
+        &:before {
+            content: "";
+            display: block;
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 25px;
+            height: 25px;
+            background: url(../img/ico/subscription_logo.png) no-repeat;
+        }
+    }
+
+    // .subscription__body
+
+    &__body {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    // .subscription__text
+
+    &__text {
+        width: 440px;
+        font-family: PTSans;
+        font-size: 15px;
+        line-height: 25px;
+        font-weight: 400;
+        color: #333333;
+    }
+
+    // .subscription__form
+
+    &__form {
+        width: 450px;
+        height: 50px;
+        border: 3px solid #bb9c66;
+        display: flex;
+        justify-content: space-between;
+        input {
+            height: 100%;
+            width: 100%;
+            border: none;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        button {
+            position: relative;
+            padding-left: 20px;
+            text-align: left;
+            min-width: 95px;
+            height: 100%;
+            font-family: PFDinTextCondPro;
+            font-size: 21.3px;
+            line-height: 25px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #1c242a;
+            border: none;
+            background-color: #ffffff;
+            &:before {
+                display: block;
+                content: "";
+                position: absolute;
+                width: 1px;
+                height: 32px;
+                background-color: #bb9c66;
+                left:0;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            &:after {
+                display: block;
+                content: "";
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                right: 15px;
+                width: 25px;
+                height: 17px;
+                background: url(../img/ico/form_arrow.png);
+            }
+        }
+    }
+}

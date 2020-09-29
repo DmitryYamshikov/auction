@@ -46,31 +46,6 @@ window.addEventListener("DOMContentLoaded", () => {
             refreshSliderEnd(promoSliderWrap, slides);
         }
     });
-    /*     let slideIndex = 1;
-
-    showSlides(1);
-
-    function showSlides(n) {
-        if (n > slides.length) {
-            slideIndex = 1;
-        }
-        if (n < 1) {
-            slideIndex = slides.length;
-        }
-        slides.forEach((item) => (item.style.display = "none"));
-        slides[slideIndex - 1].style.display = "";
-    }
-
-    function plusSlides(n) {
-        showSlides((slideIndex += n));
-    }
-
-    prev.addEventListener("click", () => {
-        plusSlides(-1);
-    });
-    next.addEventListener("click", () => {
-        plusSlides(1);
-    }); */
 
     //? POPULAR-LOTS__SLIDER
 
@@ -142,4 +117,34 @@ window.addEventListener("DOMContentLoaded", () => {
             calcSliderCurrentShow(sliderWrap, sliderItems)
         );
     }
+
+    //?QUOTE SLIDER
+
+    const quoteSliderWrap = document.querySelector(".slider-quote__items");
+    const quoteSlides = document.querySelectorAll(".slider-quote__item");
+    const quoteBtnNext = document.querySelector(".slider-quote__arrow_right");
+    const quoteBtnPrev = document.querySelector(".slider-quote__arrow");
+    const quoteBtnRefresh = document.querySelector(".slider-quote__refresh");
+
+    quoteBtnNext.addEventListener("click", () => {
+        let index = calcCurrentIndex(quoteSliderWrap, quoteSlides);
+        if (index < quoteSlides.length) {
+            nextSlide(quoteSliderWrap, quoteSlides);
+        } else {
+            refreshSliderStart(quoteSliderWrap);
+        }
+    });
+
+    quoteBtnPrev.addEventListener("click", () => {
+        let index = calcCurrentIndex(quoteSliderWrap, quoteSlides);
+        if (index > calcSliderCurrentShow(quoteSliderWrap, quoteSlides)) {
+            prevSlide(quoteSliderWrap, quoteSlides);
+        } else {
+            refreshSliderEnd(quoteSliderWrap, quoteSlides);
+        }
+    });
+
+    quoteBtnRefresh.addEventListener("click", () => {
+        refreshSliderStart(quoteSliderWrap);
+    });
 });
